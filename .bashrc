@@ -117,11 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 # liquid prompt settings
-[[ $- = *i* ]] && source ~/Tools/liquidprompt/liquidprompt
+[[ $- = *i* ]] && source ~/bashrc-config/.config/liquidprompt/liquidprompt
 # Add command to history before executing
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # fuzzy autocomplete
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/bashrc-config/.config/.fzf.bash ] && source ~/bashrc-config/.config/.fzf.bash
 
 # shopt options
-source ~/bin/shopt_options.sh
+source ~/bashrc-config/bin/shopt_options.sh
