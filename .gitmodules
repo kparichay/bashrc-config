@@ -1,0 +1,6 @@
+[submodule ".config/fzf"]
+	path = .config/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".config/liquidprompt"]
+	path = .config/liquidprompt
+	url = https://github.com/nojhan/liquidprompt
