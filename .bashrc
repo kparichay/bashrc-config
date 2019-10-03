@@ -125,3 +125,5 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # shopt options
 source ~/bashrc-config/bin/shopt_options.sh
+
+# Test comment
