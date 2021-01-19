@@ -116,12 +116,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# liquid prompt settings
-[[ $- = *i* ]] && source ~/bashrc-config/.config/liquidprompt/liquidprompt
 # Add command to history before executing
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-# fuzzy autocomplete
-[ -f ~/bashrc-config/.config/.fzf.bash ] && source ~/bashrc-config/.config/.fzf.bash
 
-# shopt options
-source ~/bashrc-config/bin/shopt_options.sh
+# source config
+source ~/bin/shopt_options.sh
+source ~/bin/aliases.sh
+source ~/bin/dependent_config.sh
+
+# Manage history
+export HISTFILE="$HOME/.bash_history"
+export HISTSIZE=20000
+export SAVEHIST=20000
+export HISTCONTROL=ignorespace:erasedups
+# Appens to histroy, no duplicates
+if [ -n "$ZSH_VERSION" ]; then
+  setopt appendhistory inc_append_history hist_expire_dups_first hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_reduce_blanks
+fi

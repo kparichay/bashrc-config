@@ -1,0 +1,33 @@
+# Working version
+if [ -z $ARCH ]; then
+  ARCH=amd64
+fi
+if [ -z $DIST ]; then
+  DIST=xenial
+fi
+
+DEBOOTSTRAPOPTS=("${DEBOOTSTRAPOPTS[@]}"
+        "--keyring=/usr/share/keyrings/ubuntu-archive-keyring.gpg")
+MIRRORSITE="http://archive.ubuntu.com/ubuntu/"
+if [ "$ARCH" == "arm64" ] || [ "$ARCH" == "armhf" ]; then
+  DEBOOTSTRAP="qemu-debootstrap"
+  MIRRORSITE="http://ports.ubuntu.com/ubuntu-ports/"
+  PBUILDERSATISFYDEPENDSCMD=/usr/lib/pbuilder/pbuilder-satisfydepends-gdebi
+fi
+
+COMPONENTS="main restricted universe multiverse"
+NAME="$DIST-$ARCH"
+
+DEBOOTSTRAPOPTS=("${DEBOOTSTRAPOPTS[@]}" "--arch=$ARCH")
+DISTRIBUTION="$DIST"
+OTHERMIRROR="$OTHERMIRROR | deb $MIRRORSITE $DIST $COMPONENTS |\
+	     deb $MIRRORSITE $DIST-security $COMPONENTS |\
+	     deb $MIRRORSITE $DIST-updates $COMPONENTS |\
+	     deb [trusted=yes] http://ppa.launchpad.net/nnstreamer/ppa/ubuntu $DIST main |\
+       deb [trusted=yes] http://ppa.launchpad.net/deadsnakes/ppa/ubuntu $DIST main"
+
+BASETGZ="/var/cache/pbuilder/$NAME-base.tgz"
+BUILDRESULT="/var/cache/pbuilder/$NAME/result/"
+APTCACHE="/var/cache/pbuilder/$NAME/aptcache/"
+BUILDPLACE="/var/cache/pbuilder/build"
+HOOKDIR="/var/cache/pbuilder/hook.d/"

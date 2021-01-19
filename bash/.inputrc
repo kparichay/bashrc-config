@@ -1,0 +1,28 @@
+$include /etc/inputrc
+
+## SMARTER TAB-COMPLETION (Readline bindings) ##
+# Refer https://github.com/akhilkedia/Bashrc-and-Bin
+
+# Perform file completion in a case insensitive fashion
+set completion-ignore-case on
+
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# Treat hyphens and underscores as equivalent
+set completion-map-case on
+
+# Display matches for ambiguous patterns at first tab press
+set show-all-if-ambiguous on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Dont complete suffixes of current word being completed in completing in the middle of a word
+set skip-completed-text on
+
+# coloured tab completions
+set colored-stats on
+
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+set match-hidden-files off

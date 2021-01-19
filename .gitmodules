@@ -1,6 +1,12 @@
 [submodule ".config/fzf"]
 	path = .config/fzf
 	url = https://github.com/junegunn/fzf
+	branch = master
 [submodule ".config/liquidprompt"]
 	path = .config/liquidprompt
 	url = https://github.com/nojhan/liquidprompt
+	branch = master
+[submodule ".config/tldr"]
+	path = .config/tldr
+	url = https://github.com/raylee/tldr-sh-client
+	branch = master
