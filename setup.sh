@@ -52,6 +52,15 @@ stow -v -t ${HOME}/bin tldr
 popd
 chmod +x ${HOME}/bin/tldr
 
+# install neovim
+pushd ~/.config/
+pushd neovim-init.vim
+python3 -m install doq
+./install.sh
+popd
+cp init.vim nvim/
+popd
+
 #### INSTALL REQUIRED SOFTWARES
 # Google chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -66,7 +75,7 @@ sudo apt upgrade -y
 
 # install necessary packages
 sudo apt install -y google-chrome-stable
-sudo apt install -y gh vim
+sudo apt install -y vim gh
 sudo apt install -y gnome-tweaks gnome-tweak-tool
 sudo apt install -y nvidia-driver-460 nvidia-opencl-dev nvidia-prime nvidia-profiler
 sudo apt install -y vlc gimp

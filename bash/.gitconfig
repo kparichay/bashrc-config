@@ -18,7 +18,6 @@
   guitool = default-difftool
   tool = default-difftool
   renames = copies
-
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
 [difftool]

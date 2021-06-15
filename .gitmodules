@@ -10,3 +10,7 @@
 	path = .config/tldr
 	url = https://github.com/raylee/tldr-sh-client
 	branch = master
+[submodule ".config/neovim-init.vim"]
+	path = .config/neovim-init.vim
+  url = git@github.com:Optixal/neovim-init.vim.git
+  branch = master
