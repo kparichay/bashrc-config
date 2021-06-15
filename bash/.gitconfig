@@ -14,6 +14,7 @@
   checkStat = minimal
   trustctime = false
   untrackedCache = true
+  editor = vim
 [diff]
   guitool = default-difftool
   tool = default-difftool
