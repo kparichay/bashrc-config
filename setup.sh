@@ -21,7 +21,7 @@ stowit() {
     mkdir -p ${TARGET}
 
     # -v verbose
-    # -R recursive
+    # -R restow
     # -t target
     echo "stow -v -R -t ${TARGET} ${APP}"
     stow -v -R -t ${TARGET} ${APP}
@@ -34,7 +34,7 @@ APPS=( bash bin .config .vim )
 # install apps available to local users and root
 # if [ -f "${HOME}/.bashrc" && ! \( -L "${HOME}/.bashrc" \) ]; then
 if [ -f "${HOME}/.bashrc" ]; then
-  mv ${HOME}/.bashrc ${HOME}/.bashrc.bak
+  cp ${HOME}/.bashrc ${HOME}/.bashrc.bak
 fi
 for app in ${APPS[@]}; do
     stowit ${app}
@@ -59,6 +59,8 @@ python3 -m install doq
 ./install.sh
 popd
 cp init.vim nvim/
+# TODO: remove this once https://github.com/Optixal/neovim-init.vim/pull/15 is merged
+sed -i '$ d' ~/.bashrc # remove the last line of bashrc by nvim
 popd
 
 #install scm breeze

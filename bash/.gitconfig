@@ -20,7 +20,8 @@
   tool = default-difftool
   renames = copies
 [difftool "default-difftool"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  cmd = vimdiff
+  algorithm = historgram
 [difftool]
   prompt = false
 [push]
