@@ -85,6 +85,3 @@ sudo apt install -y vlc gimp
 
 # auto remove unnecessary items
 sudo apt autoremove -y
-
-# use the updated bashrc
-source ~/.bashrc

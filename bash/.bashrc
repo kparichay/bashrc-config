@@ -123,12 +123,15 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 source ~/bin/shopt_options.sh
 source ~/bin/aliases.sh
 source ~/bin/dependent_config.sh
+source ~/bin/exports.sh
+source ~/bin/work_exports.sh
 
 # Manage history
 export HISTFILE="$HOME/.bash_history"
 export HISTSIZE=20000
 export SAVEHIST=20000
 export HISTCONTROL=ignorespace:erasedups
+
 # Appens to histroy, no duplicates
 if [ -n "$ZSH_VERSION" ]; then
   setopt appendhistory inc_append_history hist_expire_dups_first hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_reduce_blanks
@@ -140,3 +143,5 @@ alias vi='vim'
 
 # scm breeze imports
 [ -s "/home/kparichay/.scm_breeze/scm_breeze.sh" ] && source "/home/kparichay/.scm_breeze/scm_breeze.sh"
+
+alias vim='nvim'
