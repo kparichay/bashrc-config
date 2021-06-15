@@ -61,13 +61,16 @@ popd
 cp init.vim nvim/
 popd
 
+#install scm breeze
+pushd ~/.config/scm_breeze
+./install.sh
+popd
+
 #### INSTALL REQUIRED SOFTWARES
 # Google chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
-# github cli
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-sudo apt-add-repository https://cli.github.com/packages
+# git breeze
 
 # update for all the added repos
 sudo apt update
@@ -75,10 +78,13 @@ sudo apt upgrade -y
 
 # install necessary packages
 sudo apt install -y google-chrome-stable
-sudo apt install -y vim gh
+sudo apt install -y vim
 sudo apt install -y gnome-tweaks gnome-tweak-tool
 sudo apt install -y nvidia-driver-460 nvidia-opencl-dev nvidia-prime nvidia-profiler
 sudo apt install -y vlc gimp
 
 # auto remove unnecessary items
 sudo apt autoremove -y
+
+# use the updated bashrc
+source ~/.bashrc

@@ -134,5 +134,9 @@ if [ -n "$ZSH_VERSION" ]; then
   setopt appendhistory inc_append_history hist_expire_dups_first hist_find_no_dups hist_ignore_all_dups hist_ignore_space hist_reduce_blanks
 fi
 
+# neovim alias
 alias vim='nvim'
 alias vi='vim'
+
+# scm breeze imports
+[ -s "/home/kparichay/.scm_breeze/scm_breeze.sh" ] && source "/home/kparichay/.scm_breeze/scm_breeze.sh"
