@@ -119,12 +119,10 @@ fi
 # Add command to history before executing
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
-# source config
-source ~/bin/shopt_options.sh
-source ~/bin/aliases.sh
-source ~/bin/dependent_config.sh
-source ~/bin/exports.sh
-source ~/bin/work_exports.sh
+# source configs/exports
+for file in ~/bin/*.sh; do
+    echo $file
+done
 
 # Manage history
 export HISTFILE="$HOME/.bash_history"
@@ -143,5 +141,3 @@ alias vi='vim'
 
 # scm breeze imports
 [ -s "/home/kparichay/.scm_breeze/scm_breeze.sh" ] && source "/home/kparichay/.scm_breeze/scm_breeze.sh"
-
-alias vim='nvim'
