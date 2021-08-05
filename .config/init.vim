@@ -48,6 +48,8 @@ Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
 Plug 'ericcurtin/CurtineIncSw.vim'
+Plug 'vim-scripts/a.vim'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 " Entertainment
 "Plug 'ryanss/vim-hackernews'
@@ -241,7 +243,7 @@ nmap <S-Tab> :bprevious<CR>
 let &colorcolumn="81,".join(range(120,999),",")
 highlight ExtraWhitespace ctermbg=red guibg=red
 map <C-[> :vsp <CR><C-]>
-map <C-h> :vsp <CR>:call CurtineIncSw()<CR>
+map <C-h> :call CurtineIncSw()<CR>
 set mouse=a
 set wildmenu    " menu completion
 set splitright  " Split on right
@@ -270,3 +272,5 @@ map! <S-Insert> <MiddleMouse>
 " Automatically rewmove extra white spaces on save
 autocmd BufWritePre * %s/\s\+$//e
 unmap <esc>
+" load interactive shell in vim
+set shellcmdflag=-ic

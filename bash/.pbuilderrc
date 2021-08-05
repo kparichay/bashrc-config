@@ -38,3 +38,8 @@ BUILDPLACE="/var/cache/pbuilder/build"
 HOOKDIR="/var/cache/pbuilder/hook.d/"
 CCACHEDIR="/var/cache/pbuilder/ccache"
 
+mkdir -p $BUILDRESULT
+mkdir -p $APTCACHE
+mkdir -p $BUILDPLACE
+mkdir -p $HOOKDIR
+mkdir -p $CCACHEDIR

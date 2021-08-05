@@ -121,7 +121,7 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # source configs/exports
 for file in ~/bin/*.sh; do
-    echo $file
+    source $file
 done
 
 # Manage history

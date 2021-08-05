@@ -34,7 +34,7 @@ APPS=( bash bin .config .vim )
 # install apps available to local users and root
 # if [ -f "${HOME}/.bashrc" && ! \( -L "${HOME}/.bashrc" \) ]; then
 if [ -f "${HOME}/.bashrc" ]; then
-  cp ${HOME}/.bashrc ${HOME}/.bashrc.bak
+  mv ${HOME}/.bashrc ${HOME}/.bashrc.bak
 fi
 for app in ${APPS[@]}; do
     stowit ${app}
@@ -72,7 +72,12 @@ popd
 # Google chrome
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
-# git breeze
+# vscode
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+rm -f packages.microsoft.gpg
+sudo apt install apt-transport-https
 
 # update for all the added repos
 sudo apt update
@@ -80,7 +85,7 @@ sudo apt upgrade -y
 
 # install necessary packages
 sudo apt install -y google-chrome-stable
-sudo apt install -y vim
+sudo apt install -y vim code gitk
 sudo apt install -y gnome-tweaks gnome-tweak-tool
 sudo apt install -y nvidia-driver-460 nvidia-opencl-dev nvidia-prime nvidia-profiler
 sudo apt install -y vlc gimp
